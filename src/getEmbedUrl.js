@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://0xz8bvrpr7.execute-api.eu-west-1.amazonaws.com/prod/";
+const API_URL = "https://m7ff5hsdkl.execute-api.eu-west-1.amazonaws.com/Prod";
 
 export const getUrl = async () => {
   try {
