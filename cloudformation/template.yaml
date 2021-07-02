@@ -128,7 +128,7 @@ Resources:
         Name: hometemp
         Description: All tables related to persisted tweets.
 
-  TempTable:
+  TweetTable:
     Type: AWS::Glue::Table
     Properties:
       CatalogId: !Ref AWS::AccountId
@@ -210,7 +210,7 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases:
-          - "twitter.enpalm.se"
+          - "temp.enpalm.se"
         DefaultCacheBehavior: 
           AllowedMethods: # Which methods to forward to S3
             - GET
