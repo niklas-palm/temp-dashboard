@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { embedDashboard } from "amazon-quicksight-embedding-sdk";
 
-function App() {
+import { getUrl } from "./getEmbedUrl";
+
+import "./App.scss";
+
+const App = () => {
+  useEffect(() => {
+    const visualizeDashboard = async () => {
+      const url = await getUrl();
+      const options = {
+        url,
+        container: document.getElementById("dashboard"),
+      };
+      embedDashboard(options);
+    };
+
+    visualizeDashboard();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="AppContainer">
+      <div className="dashboard" id="dashboard"></div>
     </div>
   );
-}
+};
 
 export default App;
